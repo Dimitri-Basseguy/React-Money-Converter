@@ -1,0 +1,21 @@
+// import
+@import 'src/styles/_vars.scss';
+
+.header {
+  background-color: $principal;
+  color: $claire;
+  padding: 2rem;
+  height: 150px;
+  
+  .header-title {
+    font-weight: 700;
+    font-size: 3em;
+    font-family: 'Spartan', sans-serif;
+    margin-bottom: 1rem;
+  }
+
+  .header-info {
+    font-weight: 300;
+    font-family: 'Spartan', sans-serif;
+  }
+}

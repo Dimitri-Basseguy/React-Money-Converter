@@ -1,0 +1,27 @@
+// import
+@import 'src/styles/_vars.scss';
+
+.result {
+    background-color: $claire;
+    padding-top: 1rem;
+    color: $principal;
+    text-align: center;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    .result-calc{
+        font-weight: 700;
+        font-family: 'Spartan', sans-serif;
+        font-size: 2em;
+        padding: .2rem 0rem;
+    }
+
+    .result-money{
+        font-weight: 300;
+        font-family: 'Spartan', sans-serif;
+        padding: .6rem 0rem;
+        font-size: 1.2em;
+    }
+}

@@ -1,0 +1,25 @@
+// import
+@import 'src/styles/_vars.scss';
+
+.currencie {
+    background-color: $claire;
+    overflow: auto;
+    padding-top: 1rem;
+    color: $principal;
+    text-align: left;
+    height: 250px;
+    
+    .currencie-title{
+        font-weight: 700;
+        font-size: 1.5em;
+        font-family: 'Spartan', sans-serif;
+        padding: 1rem .6rem;
+    }
+
+    .currencie-money{
+        font-weight: 500;
+        font-family: 'Spartan', sans-serif;
+        padding: .8rem .6rem;
+        border-top: 1px solid $alternative;
+    }
+}
