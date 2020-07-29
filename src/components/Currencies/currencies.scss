@@ -8,6 +8,7 @@
     color: $principal;
     text-align: left;
     height: 250px;
+    scroll-behavior: smooth;
     
     .currencie-title{
         font-weight: 700;
@@ -21,5 +22,13 @@
         font-family: 'Spartan', sans-serif;
         padding: .8rem .6rem;
         border-top: 1px solid $alternative;
+        transition: background-color 1s linear;
+        background-color: $claire;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $alternative;
+            transition: background-color .2s linear;
+        }
     }
 }
