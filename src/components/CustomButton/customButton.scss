@@ -1,0 +1,23 @@
+@import 'src/styles/vars';
+
+.custom-button {
+  width: 50px;
+  height: 50px;
+  border: 4px solid $principal;
+  border-radius: 50%;
+  background-color: $claire;
+  font-size: 2em;
+  color: $principal;
+  margin-top: -40px;
+  margin-bottom: 10px;
+  transition: transform $transition-slow;
+
+  &:hover {
+    background-color: $principal;
+    color: $claire;
+  }
+
+  &--open {
+    transform: rotate(90deg);
+  }
+}

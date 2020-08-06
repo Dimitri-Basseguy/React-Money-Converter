@@ -5,6 +5,7 @@ import React from 'react';
 import Header from 'src/components/Header';
 import Currencies from 'src/components/Currencies';
 import Results from 'src/components/Results';
+import CustomButton from 'src/components/CustomButton';
 import './app.scss';
 // Import Data
 import datas from 'src/data/currencies';
@@ -40,7 +41,7 @@ class App extends React.Component {
     open: false,
   };
 
-  // grâce au plugin babel "@babel/plugin-proposal-class-properties"
+  // grâce au plugin babel "@babel/plugin-proposal-class-properties" dans le fichier ".babelrc"
   // au lieu de définir une méthode, je définis une propriété
   handleClic = () => {
     // j'ai accès à this sans avoir besion de bind
@@ -63,7 +64,7 @@ class App extends React.Component {
     return (
       <div className="app">
         <Header />
-        <button type="button" onClick={this.handleClic}>Open</button>
+        <CustomButton open={open} />
         {open && <Currencies moneys={datas} />}
         <Results />
       </div>
