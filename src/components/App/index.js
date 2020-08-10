@@ -82,6 +82,11 @@ class App extends React.Component {
 
   setCurrency = (name) => {
     console.log(`Comp. Currencies : ${name}`);
+
+    // TODO mettre à jour le state
+    this.setState({
+      currency: name,
+    });
   }
 
   render() {
