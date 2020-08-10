@@ -43,7 +43,7 @@ class App extends React.Component {
     // amount in source currencies, (displayed in the header)
     baseAmount: 1,
     // target currency
-    currency: 'United States Dollar',
+    currency: datas[30].name,
   };
 
   // grâce au plugin babel "@babel/plugin-proposal-class-properties" dans le fichier ".babelrc"
@@ -55,6 +55,7 @@ class App extends React.Component {
 
     // changer quelque chose dans le state : envoi de la nouvelle valeur avec setState
     // On fournit un objet qui décrit les changements à appliquer au state
+    // (je n'indique pas les propriétés qui gardent la même valeur)
     this.setState({
       // eslint-disable-next-line react/no-access-state-in-setstate
       open: !this.state.open,
@@ -83,7 +84,6 @@ class App extends React.Component {
   setCurrency = (name) => {
     console.log(`Comp. Currencies : ${name}`);
 
-    // TODO mettre à jour le state
     this.setState({
       currency: name,
     });
