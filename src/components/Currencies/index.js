@@ -33,7 +33,6 @@ Currencies.propTypes = {
   moneys: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      rate: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
   setCurrency: PropTypes.func.isRequired,
