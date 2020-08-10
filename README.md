@@ -1,8 +1,7 @@
+## About The Project 
 # Convertisseur
 
-## Objectif
-
-Réaliser ce projet
+Simple convertisseur de money avec react.
 
 ![](resultat.gif)
 
@@ -15,30 +14,63 @@ Réaliser ce projet
 - Placer des props
 - Dynamiser avec `src/data/currencies.js`
 
-## Styles
+### Built With
 
-### Font
+* :fr: React
+* 🐙 Github
+* 💻 VS Code
 
-[Spartan](https://fonts.google.com/?query=spartan)
-- `300` : textes
-- `500` : liste de devises
-- `700` : titre et résultat
+<!-- GETTING STARTED -->
+## Getting Started
 
-### Couleurs
+To get a local copy up and running follow these simple steps.
 
-- Principale `#bb5432`
-- Alternative `#f1c5b6`
-- Claire `#fff`
+### Prerequisites
 
-### Transitions
+This is an example of how to list things you need to use the software and how to install them.
+* Git
+```sh
+sudo apt-get install git
+```
 
-- Rapide : `0.2s`
-- Lente : `1s`
+Clone this repo 
+* React
 
+Then install react with cli
+```sh
+yarn
+```
+Launch server with
+```sh
+yarn start
+```
+Go to http://localhost:8080
 
-## Whaaat ?
+Enjoy !
+
+## Tips
 
 - https://fr.reactjs.org/docs/components-and-props.html#composing-components
 - https://fr.reactjs.org/docs/introducing-jsx.html#embedding-expressions-in-jsx
 - https://developer.mozilla.org/fr/docs/Web/CSS/overflow
 - https://developer.mozilla.org/fr/docs/Web/CSS/transition
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+You can grab this code, and try yourself this small App :)
+
+
+<!-- CONTACT -->
+## Contact
+
+Basseguy Dimitri - [@twitter.com/Kulexus](https://twitter.com/Kulexus) - dimitri.basseguy@gmail.com
+
+Project Link: [https://github.com/Dimitri-Basseguy/React-Money-Converter](https://github.com/Dimitri-Basseguy/React-Money-Converter)
+
+
+
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+
+* Stay safe.
