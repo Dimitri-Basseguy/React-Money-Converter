@@ -38,7 +38,12 @@ class App extends React.Component {
   // }
 
   state = {
+    // wheter the currencies block is opened
     open: false,
+    // amount in source currencies, (displayed in the header)
+    baseAmount: 1,
+    // target currency
+    currency: 'United States Dollar',
   };
 
   // grâce au plugin babel "@babel/plugin-proposal-class-properties" dans le fichier ".babelrc"
@@ -58,15 +63,37 @@ class App extends React.Component {
     // il rappel la method render()
   }
 
+  // calcul du montant (conversion du montant de base vers la devise cible)
+  computeAmount = () => {
+    // récup les infos utiles dans le state
+    const { baseAmount, currency } = this.state;
+    // récup le taux de change dans currencies
+    const foundCurrency = datas.find((data) => data.name === currency);
+    console.log(foundCurrency);
+
+    // multiplier par le taux
+    // destructuring = const rate = foundCurrency.rate;
+    const { rate } = foundCurrency;
+    const result = baseAmount * rate;
+
+    // On arrondit en ne gardant que deux décimales
+    return Number(result.toFixed(2));
+  };
+
+  setCurrency = (name) => {
+    console.log(`Comp. Currencies : ${name}`);
+  }
+
   render() {
-    const { open } = this.state;
+    const { open, baseAmount, currency } = this.state;
+    const resultAmount = this.computeAmount();
 
     return (
       <div className="app">
-        <Header />
-        <CustomButton open={open} />
-        {open && <Currencies moneys={datas} />}
-        <Results />
+        <Header amount={baseAmount} />
+        <CustomButton open={open} manageClick={this.handleClic} />
+        {open && <Currencies moneys={datas} setCurrency={this.setCurrency} />}
+        <Results currency={currency} amount={resultAmount} />
       </div>
     );
   }
