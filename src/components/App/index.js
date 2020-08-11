@@ -44,6 +44,8 @@ class App extends React.Component {
     baseAmount: 1,
     // target currency
     currency: datas[30].name,
+    // value for the input to filter for currencies
+    search: '',
   };
 
   // grâce au plugin babel "@babel/plugin-proposal-class-properties" dans le fichier ".babelrc"
@@ -89,15 +91,33 @@ class App extends React.Component {
     });
   }
 
+  setSearch = (newValue) => {
+    this.setState({
+      search: newValue,
+    });
+  }
+
   render() {
-    const { open, baseAmount, currency } = this.state;
+    const {
+      open,
+      baseAmount,
+      currency,
+      search,
+    } = this.state;
     const resultAmount = this.computeAmount();
 
     return (
       <div className="app">
         <Header amount={baseAmount} />
         <CustomButton open={open} manageClick={this.handleClic} />
-        {open && <Currencies moneys={datas} setCurrency={this.setCurrency} />}
+        {open && (
+          <Currencies
+            moneys={datas}
+            search={search}
+            setSearch={this.setSearch}
+            setCurrency={this.setCurrency}
+          />
+        )}
         <Results currency={currency} amount={resultAmount} />
       </div>
     );
