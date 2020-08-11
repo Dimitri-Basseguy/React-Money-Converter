@@ -22,6 +22,8 @@ import datas from 'src/data/currencies';
 // )}
 
 // Composant sous forme de class : render() retourne le JSX
+// container component, le seul de l'application, gère les données (state)
+// fourni les données au autres composants (dumb component) qui se contentent d'afficher les données
 class App extends React.Component {
   // Constructeur : On passe props en paramètre, même si on n'en a pas
   // constructor(props) {
@@ -72,7 +74,7 @@ class App extends React.Component {
     const { baseAmount, currency } = this.state;
     // récup le taux de change dans currencies
     const foundCurrency = datas.find((data) => data.name === currency);
-    console.log(foundCurrency);
+    // console.log(foundCurrency);
 
     // multiplier par le taux
     // destructuring = const rate = foundCurrency.rate;
@@ -84,7 +86,7 @@ class App extends React.Component {
   };
 
   setCurrency = (name) => {
-    console.log(`Comp. Currencies : ${name}`);
+    // console.log(`Comp. Currencies : ${name}`);
 
     this.setState({
       currency: name,
@@ -97,6 +99,26 @@ class App extends React.Component {
     });
   }
 
+  getCurrencies = () => {
+    const { search } = this.state;
+    let filteredCurrencies;
+    if (search.trim().length === 0) {
+      filteredCurrencies = datas;
+    }
+    else {
+      // on prépare search (variable intermediaire pour ne pas refaire à chaque boucle
+      const searchoptimized = search.trim().toLowerCase();
+      // filter la liste des devises en fonction de search
+      // eslint-disable-next-line arrow-body-style
+      filteredCurrencies = datas.filter((data) => {
+        // true si je veux conserver l'élément, false sinon
+        return data.name.toLowerCase().includes(searchoptimized);
+      });
+    }
+    // retourner la liste ou la stocker dans le state
+    return filteredCurrencies;
+  }
+
   render() {
     const {
       open,
@@ -104,7 +126,9 @@ class App extends React.Component {
       currency,
       search,
     } = this.state;
+
     const resultAmount = this.computeAmount();
+    const filteredCurrencies = this.getCurrencies();
 
     return (
       <div className="app">
@@ -112,7 +136,7 @@ class App extends React.Component {
         <CustomButton open={open} manageClick={this.handleClic} />
         {open && (
           <Currencies
-            moneys={datas}
+            moneys={filteredCurrencies}
             search={search}
             setSearch={this.setSearch}
             setCurrency={this.setCurrency}
