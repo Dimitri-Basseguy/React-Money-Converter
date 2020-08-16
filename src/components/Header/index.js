@@ -10,11 +10,13 @@ const Header = ({ amount, setAmount }) => (
     <h1 className="header-title">Converter</h1>
     <p className="header-info">
       <input
-      className="amount-input"
-      type="text"
-      placeholder="Inqiquer un montant"
-      value={amount}
-      onChange={(event) => setAmount(event.target.value)}
+        className="amount-input"
+        type="text"
+        placeholder="Inqiquer un montant"
+        value={amount}
+        onChange={(event) => {
+          setAmount(event.target.value);
+        }}
       />
       euro(s)
     </p>

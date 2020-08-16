@@ -68,7 +68,7 @@ class App extends React.Component {
   // version avancé : comparer avec le state précédent
   componentDidUpdate(prevState) {
     console.log('--- App componentDidUpdate ---');
-    console.log(`àvant currency valait ${prevState.currency}, maintent c'est ${prevState.currency}`);
+    // console.log(`àvant currency valait ${prevState.currency}, maintent c'est ${prevState.currency}`);
 
     if (prevState.currency !== this.state.currency) {
       console.log('Mise oà jour du titre!');
@@ -131,7 +131,7 @@ class App extends React.Component {
 
   setAmount = (newValue) => {
     this.setState({
-      baseAmount: newValue,
+      baseAmount: Number(newValue),
     });
   }
 
