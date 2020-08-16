@@ -16,33 +16,45 @@ Pour cela on ajoute ine info dans le state et on a 2 props :
 */
 
 // responsabilité : créer le bloc des devises, boucler sur les devises
-const Currencies = ({
-  moneys,
-  setCurrency,
-  search,
-  setSearch,
-}) => (
-  <main className="currencie">
-    <input
-      className="currencie-search"
-      type="text"
-      placeholder="Rechercher une devise"
-      value={search}
-      onChange={(event) => setSearch(event.target.value)}
-    />
-    <ul>
-      {moneys.map((money) => (
-        // start sous composant
-        <Currency
-          key={money.name}
-          name={money.name}
-          setCurrency={setCurrency}
+class Currencies extends React.Component {
+  componentWillUnmount() {
+    console.log('--- Currencies - componentWillUnmount ---');
+  }
+
+  render() {
+    // console.log('--- Currencies - render ---');
+
+    const {
+      moneys,
+      setCurrency,
+      search,
+      setSearch,
+    } = this.props;
+
+    return (
+      <main className="currencie">
+        <input
+          className="currencie-search"
+          type="text"
+          placeholder="Rechercher une devise"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
         />
-        // end sous composant
-      ))}
-    </ul>
-  </main>
-);
+        <ul>
+          {moneys.map((money) => (
+            // start sous composant
+            <Currency
+              key={money.name}
+              name={money.name}
+              setCurrency={setCurrency}
+            />
+            // end sous composant
+          ))}
+        </ul>
+      </main>
+    );
+  }
+};
 
 // Validation des props
 Currencies.propTypes = {

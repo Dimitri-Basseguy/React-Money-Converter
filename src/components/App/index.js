@@ -25,6 +25,10 @@ import datas from 'src/data/currencies';
 // container component, le seul de l'application, gère les données (state)
 // fourni les données au autres composants (dumb component) qui se contentent d'afficher les données
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log('--- App constructor ---');
+  }
   // Constructeur : On passe props en paramètre, même si on n'en a pas
   // constructor(props) {
   //   // On appelle le constructeur de react.component avec les props
@@ -49,6 +53,33 @@ class App extends React.Component {
     // value for the input to filter for currencies
     search: '',
   };
+
+  componentDidMount() {
+    // console.log('--- App componentDidMount ---');
+    this.setPageTitle();
+  }
+
+  // Version simple, maj du titre à chaque changement du state
+  // componentDidUpdate() {
+  //   console.log('--- App componentDidUpdate ---');
+  //   this.setPageTitle();
+  // }
+
+  // version avancé : comparer avec le state précédent
+  componentDidUpdate(prevState) {
+    console.log('--- App componentDidUpdate ---');
+    console.log(`àvant currency valait ${prevState.currency}, maintent c'est ${prevState.currency}`);
+
+    if (prevState.currency !== this.state.currency) {
+      console.log('Mise oà jour du titre!');
+      this.setPageTitle();
+    }
+  }
+
+
+  setPageTitle() {
+    document.title = `Euro to ${this.state.currency}`;
+  }
 
   // grâce au plugin babel "@babel/plugin-proposal-class-properties" dans le fichier ".babelrc"
   // au lieu de définir une méthode, je définis une propriété
@@ -87,7 +118,6 @@ class App extends React.Component {
 
   setCurrency = (name) => {
     // console.log(`Comp. Currencies : ${name}`);
-
     this.setState({
       currency: name,
     });
@@ -120,6 +150,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log('--- App render ---');
     const {
       open,
       baseAmount,
